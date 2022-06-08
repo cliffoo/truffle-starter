@@ -11,12 +11,13 @@ contract("SimpleStorage", () => {
     await web3.currentProvider.send({
       method: "evm_setAccountCode",
       params: [newAddr, code]
-    }, (err, res) => {
+    }, async (err, res) => {
       console.log(err);
       console.log(res);
+      if (res.result) {
+        const newAddrCode = await web3.eth.getCode(newAddr);
+        console.log(newAddrCode);
+      }
     });
-
-    const newAddrCode = await web3.eth.getCode(newAddr);
-    console.log(newAddrCode);
   });
 });
