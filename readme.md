@@ -1,1 +1,1 @@
-Truffle starter project used for testing and developing Truffle features.
+Truffle starter project used when testing and developing Truffle features.
